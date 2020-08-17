@@ -1,0 +1,55 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title 시퀄라이즈 서버
+	body
+		div
+			form#user-form
+				fieldset 
+					legend 사용자 등록
+					div
+						input#username(type="text", placeholder="이르으으음")
+					div
+						input#age(type="number", placeholder="나이이이이이이")
+					div
+						input#married(type="checkbox")
+						label 결혼 여부
+					button(type="submit") 등록
+
+		table#user-list
+			thead
+				tr
+					th 아이디
+					th 이름
+					th 나이
+					th 결혼 여부
+			tbody
+				<!--for user in users-->
+					tr
+						td user.id
+						td user.name
+						td user.age
+						td user.married
+
+		div
+			form#comment-form
+				fieldset 
+					legend 댓글 등록
+					div
+						input#userid(type="text", placeholder="아이디")
+					div
+						input#comment(type="text", placeholder="댓글")
+					button(type="submit") 등록
+
+		table#comment-list
+			thead
+				tr
+					th 아이디
+					th 작성자
+					th 댓글
+					th 수정
+					th 삭제
+			tbody
+script(src='/sequelize.js')
+script(src="https://unpkg.com/axios/dist/axios.min.js")
