@@ -5,8 +5,6 @@ const { Post, User, Hashtag } = require('../models');
 const router = express.Router();
 
 router.use((req, res, next) => {
-  console.log(req.session)
-  req.session.hello = 'world'
   res.locals.user = req.user;  // passport가 제작함
   res.locals.followerCount = req.user ? req.user.Followers.length : 0;
   res.locals.followingCount = req.user ? req.user.Followings.length : 0;
@@ -15,7 +13,6 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', isLoggedIn, (req, res) => {
-  console.log('render');
   res.render('profile', { title: '내 정보 - NodeBird' });
 });
 

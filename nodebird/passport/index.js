@@ -5,6 +5,7 @@ const User = require('../models/user');
 
 module.exports = () => {
 	passport.serializeUser((user, done) => {
+		console.log('serializeUser');
 		done(null, user.id);
 	});
 
