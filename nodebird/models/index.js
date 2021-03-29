@@ -8,7 +8,7 @@ const Post = require('./post');
 const Hashtag = require('./hashtag');
 
 const db = {};
-console.log(__dirname);
+// console.log(__dirname);
 
 const sequelize = new Sequelize(
   config.database, config.username, config.password, config,
