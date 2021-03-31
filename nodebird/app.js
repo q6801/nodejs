@@ -56,16 +56,21 @@ app.use('/auth', authRouter);
 app.use('/post', postRouter);
 app.use('/user', userRouter);
 
+
+app.get('favicon.ico', (req, res) => res.status(204));
 app.use((req, res, next) => {
+	console.log('error');
 	const error = new Error(`${req.method} ${req.url} 라우터가 없음`);
 	error.status = 404;
 	next(error);
 })
 
 app.use((err, req, res, next) => {
+	console.log('real error', err);
 	res.locals.message = err.message;
 	res.locals.error = process.env.NODE_ENV !== 'production' ? err: {};
 	res.status(err.status || 500);	
+	res.render('error');
 });
 
 app.listen(app.get('port'), () => {
